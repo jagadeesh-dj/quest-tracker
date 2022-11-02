@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+<header class="header-area">
+  <!-- site-navbar start -->
+  <div class="navbar-area">
+    <div class="container">
+      <nav class="site-navbar">
+        <!-- site logo -->
+        <a href="#home" class="site-logo">Quest Tracker</a>
+
+        <!-- site menu/nav -->
+        <ul>
+          <li><a href="#home">home</a></li>
+          <li><a href="#">Message</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#exampleModal">Profile</a></li>
+          <li><a href="#home">Logout</a></li>
+          <div class="profile">
+            <img width="40px" alt="picture" class="profile" src="https://freesvg.org/img/abstract-user-flat-4.png">
+        </div>
+        </ul>
+
+        <!-- nav-toggler for mobile version only -->
+        <button class="nav-toggler">
+          <span></span>
+        </button>
+      </nav>
+    </div>
+  </div><!-- navbar-area end -->
+</header>
+  
+  <!-- Modal -->
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+                <div class="modal-body">
+                        <div class="form-group">
+                            <label>Upload Pic</label>
+                            <input type="file" class="form-control" name='image' placeholder="upload" required>
+                            <div class="invalid-feedback">
+                            please enter valid Employee Id
+                            </div>
+            
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" >Save changes</button>
+                </div>
+      </div>
+    </div>
+  </div>
+</form>
+  
+{% endblock %}

@@ -1,0 +1,99 @@
+<style>
+    .card{
+        margin-left: 15%;
+        margin-top: 5%;
+    }
+</style>
+{% extends 'base.html' %}
+{% block content %}
+{% include "userdashboard.html" %}
+<section>
+    <div class="container">
+        <h2 class="text-center font-weight-bold">Edit Details</h2>
+        <div class="card "style="width: 50rem; ">
+            <form class="needs-validation" novalidate>
+                <div class="form-row">
+                  <div class="col-md-6 mb-3">
+                    
+                      <label for="validationCustom01">Department</label>
+                      <input type="text" name="department" class="form-control" value="{{details1.department_name}}" id="validationCustom01" required>
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                    </div>
+                   
+                  <div class="col-md-6 mb-3">
+                    <label for="validationCustom01">Employee Id</label>
+                    <input type="text" class="form-control" id="validationCustom01"  value="{{employee.department_name}}" required>
+                    <div class="valid-feedback">
+                      Looks good!
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="validationCustom01">Employee Name</label>
+                    <input type="text" class="form-control" id="validationCustom01" required>
+                    <div class="valid-feedback">
+                      Looks good!
+                    </div>
+                  </div>
+                  <div class="form-check form-check-inline pl-2 pt-2">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">Male</label>
+                  </div>
+                  <div class="form-check form-check-inline pt-2">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                    <label class="form-check-label" for="inlineRadio2">Female</label>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="validationCustom02">Employee Email</label>
+                    <input type="text" class="form-control" id="validationCustom02" required>
+                    <div class="valid-feedback">
+                      Looks good!
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="validationCustom03">Employee ContactNo</label>
+                    <input type="text" class="form-control" id="validationCustom03" required>
+                    <div class="invalid-feedback">
+                      Please provide a valid city.
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="validationCustom05">Employee Address</label>
+                    <input type="text" class="form-control" id="validationCustom05" required>
+                    <div class="invalid-feedback">
+                      Please provide a valid zip.
+                    </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="validationCustom05">Employee Date of Birth</label>
+                        <input type="text" class="form-control" id="validationCustom05" required>
+                        <div class="invalid-feedback">
+                          Please provide a valid zip.
+                        </div>
+                    </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom05">Employee Date of Joining</label>
+                            <input type="text" class="form-control" id="validationCustom05" required>
+                            <div class="invalid-feedback">
+                              Please provide a valid zip.
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom05">Upload pic</label>
+                            <input type="file" class="form-control" id="validationCustom05" name="image" placeholder="Upload Image" required>
+                            <div class="invalid-feedback">
+                              please enter valid Image
+                            </div>
+                        </div>
+            
+                            <button type="submit" class="btn btn-success btn-block" >
+                                <i class="fa fa-external-link mr-1"></i>
+                                Add
+                            </button>
+                       
+              </form>
+              
+    </div>
+</section>
+{% endblock %}

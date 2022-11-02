@@ -1,0 +1,67 @@
+<style>
+  html{
+    scroll-behavior: smooth;
+  }
+  .wrapper{
+      position: fixed;
+      height: 100%;
+      width: 250px;
+      background-color: #444;
+      
+  }
+  ul{
+      text-align: center;
+    
+  }
+  li{
+      list-style: none;
+      padding: 20px;
+    
+  }
+  .items{
+      margin-top: 10%;
+    
+  }
+  ul a:hover{
+      text-decoration: none;
+      color: orange;
+  }
+  ul a{
+      color: white;
+      font-size: larger;
+      font-weight: 600;
+  }
+  .head{
+      padding-top: 10px;
+      color: white;
+      height: 60px;
+  }
+  section{
+    
+      margin-left: 250px;
+  }
+  .heading{
+      text-align: center;
+      justify-content: center;
+      margin-top: 25%;
+  }
+</style>
+<div class="wrapper">
+    <div class="menu">
+        <h3 class="head text-center font-weight-bold bg-warning">Admin DashBoard</h3>
+        <ul class="items ">
+            <li>
+                <a href="/user_adminhome">Home</a>
+            </li>
+            <li>
+                <a href="/view_employee">View Employee</a>
+            </li>
+            <li>
+                <a href="/task_status">Task Status</a>
+            </li>
+            <div class="action pt-5">
+                <a href="{% url 'admin_logout' %}" class="btn btn-danger ">LogOut</a>
+            </div>
+        </ul>
+    </div>
+</div>

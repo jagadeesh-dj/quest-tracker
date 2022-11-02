@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% block content %}
+<header class="header-area">
+  <!-- site-navbar start -->
+  <div class="navbar-area">
+    <div class="container">
+      <nav class="site-navbar">
+        <!-- site logo -->
+        <a href="#home" class="site-logo">Quest Tracker</a>
+
+        <!-- site menu/nav -->
+        <ul>
+          <li><a href="#home">home</a></li>
+          <li><a href="#">about</a></li>
+          <li><a href="{% url 'user_admin' %}">admin</a></li>
+          <li><a href="/signin">login</a></li>
+          <li><a href="#contact">contact</a></li>
+        </ul>
+
+        <!-- nav-toggler for mobile version only -->
+        <button class="nav-toggler">
+          <span></span>
+        </button>
+      </nav>
+    </div>
+  </div><!-- navbar-area end -->
+
+  <div class="intro-area">
+    <div class="container">
+      <h2>Welcome to Quest Tracker</h2>
+      <p>This is group project purpose of tracking the emp status</p>
+      <a href="/signup" class="btn btn-primary">Let Start</a>
+    </div>
+  </div>
+</header>
+  <section id="contact">
+    <div class="container my-5">
+      <div class="row">
+        <div class="col-sm-4 col-lg-4  mx-auto">
+          <div class="card bg-light" style="width: 21rem;">
+            <div class="card-body">
+              <h2 class="text-center font-weight-normal">How can i help you</h2>
+              <form action="" method="POST" autocomplete="off" class="needs-validation" novalidate>
+                {% csrf_token %}
+                  <div class="form-group">
+                      <label for="group-form">Name</label>
+                      <input type="text" class="form-control" name='username' placeholder="Enter The your Name" required>
+                      <div class="invalid-feedback">
+                        please enter valid Name
+                      </div>
+                    </div>
+                  <div class="form-group">
+                      <label>Email</label>
+                      <input type="email" class="form-control" name='email' placeholder="Enter The your Email" required>
+                      <div class="invalid-feedback">
+                        please enter valid Email
+                      </div>
+                    </div>
+                  <div class="form-group">
+                      <label>Message</label>
+                      <input type="message" class="form-control" name='message' placeholder="Enter The your Message" required>
+                      <div class="invalid-feedback">
+                        please enter valid Message
+                      </div>
+                  </div>  
+            
+                          <button class="btn btn-success btn-block">
+                            <i class="fa fa-external-link mr-1"></i>
+                            submit
+                          </button>
+                  </div>
+              </form>
+  </section>
+
+
+<script>
+  const navToggler = document.querySelector('.nav-toggler');
+  const navMenu = document.querySelector('.site-navbar ul');
+  const navLinks = document.querySelectorAll('.site-navbar a');
+
+  // load all event listners
+  allEventListners();
+
+  // functions of all event listners
+  function allEventListners() {
+    // toggler icon click event
+    navToggler.addEventListener('click', togglerClick);
+    // nav links click event
+    navLinks.forEach( elem => elem.addEventListener('click', navLinkClick));
+  }
+
+  // togglerClick function
+  function togglerClick() {
+    navToggler.classList.toggle('toggler-open');
+    navMenu.classList.toggle('open');
+  }
+
+  // navLinkClick function
+  function navLinkClick() {
+    if(navMenu.classList.contains('open')) {
+      navToggler.click();
+    }
+  }
+</script>
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+</script>
+</body>
+<footer>
+
+    <div class="footer-copyright">
+        <p>Copyright @ 2022 All Rights Reserved.</p>
+    </div>
+</footer>
+{% endblock %}

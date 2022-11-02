@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include "dashboard.html" %}
+<section>
+    <div class="container">
+        <h2 class="text-center font-weight-bold">Task Status</h2>
+        <table class="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Sno</th>
+                <th scope="col">Employee Id</th>
+                <th scope="col">Employee Name</th>
+                <th scope="col">Task Title</th>
+                <th scope="col">Task End Date</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for i in task %}
+              <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.employee_id}}</td>
+                <td>{{i.employee_name}}</td>
+                <td>{{i.task_title}}</td>
+                <td>{{i.task_end_date}}</td>
+                <td><a href="{{i.upload_task}}">{{i.upload_task}}</a></td>
+              </tr>
+             {% endfor %}
+            </tbody>
+          </table>
+
+    </div>
+</section>
+{% endblock %}

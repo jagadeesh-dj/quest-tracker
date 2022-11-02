@@ -1,0 +1,78 @@
+<style>
+    html{
+      scroll-behavior: smooth;
+    }
+    .wrapper{
+        position: fixed;
+        height: 100%;
+        width: 250px;
+        background-color: #444;
+        
+    }
+    ul{
+        text-align: center;
+      
+    }
+    li{
+        list-style: none;
+        padding: 20px;
+      
+    }
+    .items{
+        margin-top: 10%;
+      
+    }
+    ul a:hover{
+        text-decoration: none;
+        color: orange;
+    }
+    ul a{
+        color: white;
+        font-size: larger;
+        font-weight: 600;
+    }
+    .head{
+        padding-top: 10px;
+        color: white;
+        height: 60px;
+    }
+    section{
+      
+        margin-left: 250px;
+    }
+    .heading{
+        text-align: center;
+        justify-content: center;
+        margin-top: 25%;
+    }
+  </style>
+  {% load static %}
+  <div class="wrapper">
+      <div class="menu">
+          <h3 class="head text-center font-weight-bold bg-warning">User DashBoard</h3>
+          <ul class="items">
+                <li>
+                {% if data.profile %}
+                    <img src="/media/{{data.profile}}" style="height:50px;width:50px;border-radius:50%">
+                {% else %}
+                    <img src="{% static 'img\Custom_user_profile_Account-512.webp'%}" style="height:50px;width:50px;border-radius:50%">
+                {% endif %}
+          
+                </li>
+              <li>
+                  <a href="/userhome">Home</a>
+              </li>
+              
+              <li>
+                <a href="/update_details" >Update Details</a>
+              </li>
+              <li>
+                  <a href="/new_task">New Task</a>
+              </li>
+              <div class="action pt-5">
+                  <a href="{% url 'user_logout' %}" class="btn btn-danger ">LogOut</a>
+              </div>
+          </ul>
+      </div>
+  </div>
+  

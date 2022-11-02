@@ -1,0 +1,95 @@
+<style>
+  .card{
+      margin-left: 15%;
+      margin-top: 5%;
+  }
+</style>
+{% extends 'base.html' %}
+{% block content %}
+{% include "dashboard.html" %}
+<section>
+  <div class="container">
+      <h2 class="text-center font-weight-bold">Assign Task</h2>
+      <div class="card "style="width: 50rem; ">
+        {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}	
+          <form method="POST" class="needs-validation" novalidate autocomplete="off" >
+            {% csrf_token %}
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="validationCustom03">User Id</label>
+                  <input type="text" class="form-control" name="id"  value="{{data.user_id}}" id="validationCustom03" required>
+                  <div class="invalid-feedback">
+                    Please provide a valid Employee Id.
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom03">Employee Id</label>
+                    <input type="text" class="form-control" name="employeeid"  value="{{data.employee_id}}" id="validationCustom03" required>
+                    <div class="invalid-feedback">
+                      Please provide a valid Employee Id.
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="validationCustom03">Employee Name</label>
+                    <input type="text" class="form-control" name="employeename"  value="{{data.employee_name}}" id="validationCustom03" required>
+                    <div class="invalid-feedback">
+                      Please provide a valid Employee Id.
+                    </div>
+                  </div>
+                 
+                <div class="col-md-6 mb-3">
+                  
+                    <label for="validationCustom03">Task Title</label>
+                    <input type="text" class="form-control" name="tasktitle" id="validationCustom03" required>
+                    <div class="invalid-feedback">
+                      Please provide a valid task title.
+                    </div>
+                  </div>
+                <div class="col-md-6 mb-3">
+                  <label for="validationCustom03">Task End Date</label>
+                  <input type="text" class="form-control" name="taskenddate" id="validationCustom03" required>
+                  <div class="invalid-feedback">
+                    Please provide a valid Date.
+                  </div>
+                </div>
+                
+          
+                          <button type="submit" class="btn btn-success btn-block" >
+                              <i class="fa fa-external-link mr-1"></i>
+                              Assign
+                          </button>       
+            </form>
+            
+  </div>
+<script>
+
+   
+    (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+</script>
+</body>
+</html>
+</section>
+
+{% endblock %}

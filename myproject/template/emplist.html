@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'dashboard.html' %}
+
+<section>
+    <div class="container pt-4">
+        <h2 class="text-center font-weight-bold">Employee Details</h2>
+        <table class="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Sno</th>
+                <th scope="col">Department</th>
+                <th scope="col">Employee Id</th>
+                <th scope="col">Employee Name</th>
+                <th scope="col">Employee Email</th>
+                <th scope="col">Employee Address</th>
+                <th scope="col">Employee DOJ</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Task</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for i in data %}
+                <tr>
+                  <th scope="row">{{i.user_id}}</th>
+                  <td>{{i.department_name}}</td>
+                  <td>{{i.employee_id}}</td>
+                  <td>{{i.employee_name}}</td>
+                  <td>{{i.employee_email}}</td>
+                  <td>{{i.employee_address}}</td>
+                  <td>{{i.employee_doj}}</td>
+                  <td><a href="##" class="btn btn-primary">Edit</a></td>
+                  <td><a href="/assign_task/{{i.id}}" class="btn btn-success">Task</a></td>
+                  <td><a href="##" class="btn btn-danger">Delete</a></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+    </div>
+</section>
+{% endblock %}

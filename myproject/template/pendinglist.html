@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include "dashboard.html" %}
+<section>
+
+    <div class="container pt-4">
+        <h2 class="text-center font-weight-bold">Pending List</h2>
+        <table class="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Sno</th>
+                <th scope="col">Department</th>
+                <th scope="col">Employee Id</th>
+                <th scope="col">Employee Name</th>
+                <th scope="col">Employee Email</th>
+                <th scope="col">Action</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              {% for i in view %}
+                <tr>
+                  <th>{{i.counter}}</th>
+                  <td>{{i.department_name}}</td>
+                  <td>{{i.employee_id}}</td>
+                  <td>{{i.employee_name}}</td>
+                  <td>{{i.employee_email}}</td>
+                  <td><a href="/approve/{{i.id}}" class="btn btn-primary">Approve</a></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>     
+    </div>
+    
+</section>
+{% endblock %}
